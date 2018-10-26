@@ -697,6 +697,9 @@ def check_setup():
             setup_result += '%s: %s does not exist\n' % ('GIT_REPO', GIT_REPO)
         else:
             setup_result += '%s: %s is not in %s\n' % ('GIT_RPD', GIT_RPD, GIT_REPO)
+    if os.path.exists(GIT_REPO) and GIT_REPO.replace('\\\\', '\\') != os.getcwd():
+        setup_result += '%s: You are working on wrong repository (%s). ' \
+                        'GIT_RPD should be %s\n' % ('GIT_RPD', GIT_REPO, os.getcwd())
     if not os.path.exists(BIINIT_PATH):
         if not os.path.exists(OBIEE_HOME):
             setup_result += '%s: %s does not exist\n' % ("OBIEE_HOME", OBIEE_HOME)
