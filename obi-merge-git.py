@@ -692,6 +692,8 @@ def resume_merge():
 def check_setup():
     setup_result = ''
     rpd = os.path.join(GIT_REPO, GIT_RPD)
+    print GIT_REPO
+    print os.getcwd()
     if not os.path.exists(rpd):
         if not os.path.exists(GIT_REPO):
             setup_result += '%s: %s does not exist\n' % ('GIT_REPO', GIT_REPO)
